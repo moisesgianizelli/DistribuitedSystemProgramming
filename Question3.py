@@ -37,11 +37,8 @@ class PassiveStrategy(Strategy):
         totalAmountToInvest = float(stock.totalAmountToInvest)
         currentStockPrice = float(stock.currentStockPrice)
 
-        # Invest 50% of the amount at 90% of the current price
         investment = (totalAmountToInvest * 0.5) * (currentStockPrice * 0.9)
         print("You invested 50% at 90% and your current investment is:", investment)
-
-        # Check new conditions
         newStockPrice = float(input("New price of the stock: "))
         if newStockPrice <= currentStockPrice * 0.9:
             newInvestment = (totalAmountToInvest * 0.5) * (newStockPrice * 0.9)
@@ -68,6 +65,3 @@ while True:
         "Do you want to repeat the investment process? (yes/no): ")
     if userChoice.lower() != 'yes':
         break
-
-
-# MAKE THE WORD DOCUMENT WITH THE STRATEGY

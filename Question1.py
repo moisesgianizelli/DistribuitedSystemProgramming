@@ -8,30 +8,59 @@
 import copy
 
 # obj with two lists
-document = [[1, 2, 3], [4, 5, 6]]
+document = [["apple", "banana", "grapes", "blueberry"], ["yellow", "green", "red", "orange"]]
 
-# Clone an object call document using shallow and full recursive deep #(deep copy) method.
+# Clone an object called document using shallow and deep copy methods.
 shallowCopy = copy.copy(document)
 deepCopy = copy.deepcopy(document)
 
 # Four copies
-copyOfDoc1 = copy.copy(document)
-copyOfDoc2 = copy.copy(document)
-copyOfDoc3 = copy.copy(document)
-copyOfDoc4 = copy.copy(document)
+shallowCopyOfDoc1 = copy.copy(document)
+shallowCopyOfDoc2 = copy.copy(document)
+shallowCopyOfDoc3 = copy.copy(document)
+shallowCopyOfDoc4 = copy.copy(document)
+
+deepCopy1 = copy.deepcopy(document)
+deepCopy2 = copy.deepcopy(document)
+deepCopy3 = copy.deepcopy(document)
+deepCopy4 = copy.deepcopy(document)
 
 # Modify the original object to see the differences
-copyOfDoc1[1][2] = 15
-copyOfDoc2[1].extend([9, 10, 11])
-copyOfDoc3[1][0] = '456'
-copyOfDoc4[1][0] = '789'
+document[1][2] = "passion fruit"
+document[1][0] = 'mango'
+document[1][0] = 'honey'
+document[1].extend(["triangle", "circle", "square", "cube"])
 
 # Print the original and copied objects to observe the differences
-print("name=Original list=", document)
-print("name=Copy 1 list=", copyOfDoc1)
-print("name=Original list=", document)
-print("name=Copy 2 list=", copyOfDoc2)
-print("name=Original list=", document)
-print("name=Copy 3 list=", copyOfDoc3)
-print("name=Original list=", document)
-print("name=Copy 4 list=", copyOfDoc4)
+
+# Original document
+print("Original Document:")
+print(document)
+print()
+
+# Shallow Copies
+print("Shallow Copies:")
+print("Shallow Copy (shallowCopy):")
+print(shallowCopy)
+print("Shallow Copy (shallowCopyOfDoc1):")
+print(shallowCopyOfDoc1)
+print("Shallow Copy (shallowCopyOfDoc2):")
+print(shallowCopyOfDoc2)
+print("Shallow Copy (shallowCopyOfDoc3):")
+print(shallowCopyOfDoc3)
+print("Shallow Copy (shallowCopyOfDoc4):")
+print(shallowCopyOfDoc4)
+print()
+
+# Deep Copies
+print("Deep Copies:")
+print("Deep Copy (deepCopy):")
+print(deepCopy)
+print("Deep Copy (deepCopy1):")
+print(deepCopy1)
+print("Deep Copy (deepCopy2):")
+print(deepCopy2)
+print("Deep Copy (deepCopy3):")
+print(deepCopy3)
+print("Deep Copy (deepCopy4):")
+print(deepCopy4)
