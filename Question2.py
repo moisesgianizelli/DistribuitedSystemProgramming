@@ -3,43 +3,45 @@
 #directly, a custom Value object or other Add and Sub decorators. Add, Sub and Value all implement
 #the IValue interface and can be used recursively
 
-# Value class
-class Value:
-    def __init__(self, value):
-        self.value = value
+from abc import ABCMeta, abstractmethod
+
+class IValue(ABCMeta):
+    @abstractmethod
+    def getValue(self):
+        pass
+
+#Create a custom class called Value that will hold a number
+class Value(IValue):
+    def __init__(self, number):
+        self.number = number
 
     def __str__(self):
-        return str(self.value)
+        return str(self.number)
 
-# Add function
-def Add(a, b):
-    if isinstance(a, Value):
-        a = a.value
-    if isinstance(b, Value):
-        b = b.value
-    return Value(a + b)
+#The Add and Sub decorators can accept integers directly, a custom Value object or other Add and Sub decorators.
+class Add(IValue):
+    def __init__(self, number):
+        self.number = number
 
-# Sub function
-def Sub(a, b):
-    if isinstance(a, Value):
-        a = a.value
-    if isinstance(b, Value):
-        b = b.value
-    return Value(a - b)
+    def __str__(self):
+        return (self.number)
 
-# Client Application class
-class ClientApplication:
-    def __init__(self):
-        value1 = Value(5)
-        value2 = Value(3)
+class Sub(IValue):
+    def __init__(self, number):
+        self.number = number
 
-        result_add = Add(value1, value2)  # 5 + 3
-        result_sub = Sub(value1, value2)  # 5 - 3
+    def __str__(self):
+        return (self.number)
+    
+#Decorators
+@Add
+def addDecorator(number):
+    return number
 
-        print(f"Add result: {result_add}")
-        print(f"Sub result: {result_sub}")
-
-if __name__ == "__main__":
-    client = ClientApplication()
+@Sub
+def subDecorator(number):
+    return number
 
 
+# class ClientApplication:
+#     def __init__(self):
