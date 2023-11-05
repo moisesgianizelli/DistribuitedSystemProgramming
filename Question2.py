@@ -41,7 +41,3 @@ def addDecorator(number):
 @Sub
 def subDecorator(number):
     return number
-
-
-# class ClientApplication:
-#     def __init__(self):
