@@ -41,3 +41,5 @@ def addDecorator(number):
 @Sub
 def subDecorator(number):
     return number
+
+#newClass
